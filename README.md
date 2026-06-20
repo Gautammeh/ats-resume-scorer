@@ -4,7 +4,7 @@
 
 No sign-up. No API. No cost. Just paste and score.
 
-🔗 **Live Tool → [your-vercel-url.vercel.app](#)** 
+🔗 **Live Tool → [https://ats-checker-gamma.vercel.app/](#)** 
 
 ---
 
