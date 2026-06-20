@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Free ATS Resume Scorer — Instantly check how well your resume matches a job description. Get keyword insights and actionable tips." />
+  <title>ATS Resume Scorer — Free Tool</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+ 
+</head>
+<body>
+
+  <!-- Header -->
+  <header style="position:relative;">
+    <button class="dark-toggle" onclick="toggleDark()" id="darkToggle">🌙</button>
+    <h1>📄 ATS Resume <span>Scorer</span></h1>
+    <p>Check how well your resume matches a job description — instantly, for free.</p>
+  </header>
+
+  <!-- Main -->
+  <main>
+
+    <!-- How it works -->
+    <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-bottom:1.5rem;">
+      <div style="display:flex;align-items:center;gap:0.5rem;font-size:0.82rem;color:var(--gray-500);background:white;border:1px solid var(--gray-200);border-radius:99px;padding:0.4rem 1rem;">
+        <span>1️⃣</span> Paste your resume
+      </div>
+      <div style="color:var(--gray-300);font-size:1.2rem;align-self:center;">→</div>
+      <div style="display:flex;align-items:center;gap:0.5rem;font-size:0.82rem;color:var(--gray-500);background:white;border:1px solid var(--gray-200);border-radius:99px;padding:0.4rem 1rem;">
+        <span>2️⃣</span> Paste job description
+      </div>
+      <div style="color:var(--gray-300);font-size:1.2rem;align-self:center;">→</div>
+      <div style="display:flex;align-items:center;gap:0.5rem;font-size:0.82rem;color:var(--gray-500);background:white;border:1px solid var(--gray-200);border-radius:99px;padding:0.4rem 1rem;">
+        <span>3️⃣</span> Get your ATS score instantly
+      </div>
+    </div>
+
+    <!-- Input Section -->
+    <div class="input-grid">
+      <div class="input-card">
+        <label for="resumeInput">
+          <span class="icon">📋</span>
+          Paste Your Resume
+        </label>
+        <textarea id="resumeInput" placeholder="Paste the full text of your resume here…"></textarea>
+      </div>
+      <div class="input-card">
+        <label for="jobInput">
+          <span class="icon">💼</span>
+          Paste Job Description
+        </label>
+        <textarea id="jobInput" placeholder="Paste the job description you're applying to…"></textarea>
+      </div>
+    </div>
+
+    <!-- Action Buttons -->
+    <div class="action-row">
+      <button id="analyzeBtn" class="btn btn-primary" onclick="analyzeResume()">
+        🔍 Analyze My Resume
+      </button>
+      <button id="clearBtn" class="btn btn-secondary" onclick="clearAll()">
+        ✕ Clear All
+      </button>
+      <button id="copyBtn" class="btn btn-copy" onclick="copyResults()" style="display:none;">
+        📋 Copy Results
+      </button>
+    </div>
+
+    <!-- Results Section -->
+    <div id="results">
+
+      <!-- Score Card -->
+      <div class="result-card score-section stagger-1" id="scoreCard">
+        <h3><span class="card-icon">🎯</span> ATS Match Score</h3>
+        <div class="score-ring-container">
+          <svg class="score-ring" viewBox="0 0 180 180">
+            <circle class="score-ring-bg" cx="90" cy="90" r="80" />
+            <circle class="score-ring-fill" id="scoreRing" cx="90" cy="90" r="80" />
+          </svg>
+          <div class="score-value">
+            <span class="score-number" id="scoreNumber">0<span class="percent">%</span></span>
+            <span class="score-label">Match</span>
+          </div>
+        </div>
+        <div class="keyword-counts">
+          <div class="keyword-count-box matched">
+            <span>✅ Matched:</span>
+            <span class="count-num" id="matchedCount">0</span>
+          </div>
+          <div class="keyword-count-box missing">
+            <span>❌ Missing:</span>
+            <span class="count-num" id="missingCount">0</span>
+          </div>
+        </div>
+        <div style="font-size:0.78rem;color:var(--gray-400);margin-top:0.5rem;" id="totalKeywordsLabel"></div>
+        <div class="score-verdict" id="scoreVerdict"></div>
+      </div>
+
+      <!-- Matched Keywords -->
+      <div class="result-card stagger-2" id="matchedCard">
+        <h3><span class="card-icon">✅</span> Matched Keywords</h3>
+        <div class="badges-container" id="matchedBadges"></div>
+      </div>
+
+      <!-- Missing Keywords -->
+      <div class="result-card stagger-3" id="missingCard">
+        <h3><span class="card-icon">❌</span> Missing Keywords</h3>
+        <div class="badges-container" id="missingBadges"></div>
+      </div>
+
+      <!-- Tips -->
+      <div class="result-card stagger-4" id="tipsCard">
+        <h3><span class="card-icon">💡</span> Actionable Tips</h3>
+        <ul class="tips-list" id="tipsList"></ul>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Toast -->
+  <div class="toast" id="toast">Copied to clipboard!</div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-name">Gautam Mehta</div>
+      <div class="footer-email"><a href="mailto:gautammehtayt@gmail.com">gautammehtayt@gmail.com</a></div>
+      <a href="https://digitalheroesco.com" target="_blank" rel="noopener noreferrer" class="footer-hero-btn">
+        ⚡ Built for Digital Heroes
+      </a>
+      <div class="footer-copy">&copy; 2026 ATS Resume Scorer. Free forever.</div>
+    </div>
+  </footer>
+
+
+
+</body>
+</html>
